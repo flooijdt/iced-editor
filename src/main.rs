@@ -1,10 +1,12 @@
-use iced::{widget::text, Element, Sandbox, Settings};
+use iced::{widget::text_editor, Element, Sandbox, Settings};
 
 fn main() -> Result<(), iced::Error> {
     Editor::run(Settings::default())
 }
 
-struct Editor;
+struct Editor {
+    content: text_editor::Content,
+}
 
 #[derive(Debug)]
 enum Message {}
@@ -27,6 +29,6 @@ impl Sandbox for Editor {
 
     fn view(&self) -> Element<'_, Message> {
         // calling 'into' here  will turn any widget into a generic widget.
-        text("Hello iced!").into()
+        text_editor(&self.content).into()
     }
 }
