@@ -1,7 +1,7 @@
-use iced::{widget::text, Element, Sandbox};
+use iced::{widget::text, Element, Sandbox, Settings};
 
-fn main() {
-    println!("Hello, world!");
+fn main() -> Result<(), iced::Error> {
+    Editor::run(Settings::default())
 }
 
 struct Editor;
